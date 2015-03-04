@@ -89,8 +89,9 @@ else if (isset($_POST['install'])) {
             try {
 
             if ($_POST['db_engine'] == 'mysql') {
-                if ($_POST['mysql_server'] != "") {$server = $_POST['mysql_server'];}
+                if ($_POST['mysql_server'] != "") {$server = $_POST['mysql_server'];} // if server and database are filled
                 if ($_POST['mysql_database'] != "") {$database = $_POST['mysql_database'];}
+                $sql_structure = file_get_contents('install/mysql.sql');
 
                 if (isset($_POST['mysql_utf8_mb4'])) {
                     //with UTF8-MB4
@@ -100,6 +101,7 @@ else if (isset($_POST['install'])) {
                     ));
                     $content = str_replace("define ('MYSQL_USE_UTF8MB4', FALSE);", "define ('MYSQL_USE_UTF8MB4', TRUE);", $content);
                 } else { // regular UTF8
+                    $content = str_replace(" DEFAULT CHARSET=utf8mb4", "", $content); // replace the UTF8-MB4 occurences inside the mysql.sql file
                     $db_path = 'mysql:host=' . $server . ';dbname=' . $database;
                     $handle = new PDO($db_path, $_POST['mysql_user'], $_POST['mysql_password']);
                 }
@@ -117,7 +119,6 @@ else if (isset($_POST['install'])) {
                 $moreQueries[] = "INSERT INTO `tags` (`id`, `value`) VALUES (1, 'opensource');";
                 $moreQueries[] = "INSERT INTO `tags_entries` (`id`, `entry_id`, `tag_id`) VALUES (1, 2, 1);";
 
-                $sql_structure = file_get_contents('install/mysql.sql');
             }
             else if ($_POST['db_engine'] == 'postgres') {
                 if ($_POST['pg_server'] != "") {$server = $_POST['pg_server'];}
