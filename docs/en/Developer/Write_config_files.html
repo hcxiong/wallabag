@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>wallabag - Help wallabag</title>
+        <title>wallabag - Write config files</title>
 
         <link rel="stylesheet" href="http://doc.wallabag.org/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://doc.wallabag.org/css/font-awesome.min.css">
@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="http://doc.wallabag.org/">
                 wallabag
                 <small class="hidden-xs hidden-sm">
-                    Help wallabag
+                    Write config files
                 </small>
             </a>
             <a href="http://doc.wallabag.org/en">EN</a> - <a href="http://doc.wallabag.org/fr">FR</a> - <a href="http://doc.wallabag.org/de">DE</a> - <a href="http://doc.wallabag.org/ru">RU</a>
@@ -44,7 +44,7 @@
                                                    Getting started
                                                 </a>
                                             </li>
-                                                                                    <li class="test active">
+                                                                                    <li class="test ">
                                                 <a href="http://doc.wallabag.org/en/Help_wallabag.html">
                                                    Help us
                                                 </a>
@@ -140,7 +140,7 @@
                                     </h4>
 
                                         <ul class="nav nav-pills nav-stacked">
-                                                                                    <li class="test ">
+                                                                                    <li class="test active">
                                                 <a href="http://doc.wallabag.org/en/Developer/Write_config_files.html">
                                                    Write config files
                                                 </a>
@@ -177,25 +177,22 @@
 
                 
                 <section class="col-lg-10">
-                    <h1>Help wallabag</h1>
-<h2>Report bugs</h2>
-<h3>Contact wallabag support</h3>
-<p>TODO</p>
-<h3>Create a new issue</h3>
-<p>TODO</p>
-<h2>Write and fix documentation</h2>
-<p>TODO</p>
-<h2>Fix bugs</h2>
-<p>TODO</p>
-<h2>Spread the word</h2>
-<p>It's not so complicated: just talk about wallabag! Use #wallabag hashtag on all your social networks: twitter, Facebook, Diaspora*, Google+, etc.</p>
-<p>Here are our accounts on social networks:</p>
-<ul>
-<li><a href="https://framasphere.org/people/2335ff202f920132196e2a0000053625">Diaspora*</a></li>
-<li><a href="https:/twitter.com/wallabagapp">twitter</a></li>
-<li><a href="https://www.facebook.com/wallabag">Facebook</a></li>
-<li><a href="https://plus.google.com/+WallabagOrg/">Google+</a></li>
-</ul>
+                    <h1>Write config files</h1>
+<p>wallabag can use specific site config files to parse website articles. These files are stored in the <a href="https://github.com/wallabag/wallabag/tree/master/inc/3rdparty/site_config/standard"><code>inc/3rdparty/site_config/standard</code></a> folder.</p>
+<p>The format used for these files is <a href="http://www.w3.org/TR/xpath20/">XPath</a>. Look at some examples in the folder.</p>
+<h2>Automatic config files generation</h2>
+<p>Fivefilters has created a <a href="http://siteconfig.fivefilters.org/">very useful tool</a> to create config files. You just type in the adress of the article to work on with, and you select the area containing the content you want.</p>
+<p><img alt="siteconfig" src="https://lut.im/RNaO7gGe/l9vRnO1b" /></p>
+<p>You should confirm this area by trying with other articles.<br />
+When you got the right area, just click on <em>Download Full-Text RSS site config</em> to download your file.</p>
+<h2>Manual config file generation</h2>
+<p>If Fivefilters tool doesn't work correctly, take a look at the source (Ctrl + U on Firefox and Chromium). Search for your content and get the <code>class</code> or the <code>id</code> attribute of the area containing what you want.</p>
+<p>Once you've got the id or class, you can write for example one or another of these lines :</p>
+<pre><code>body: //div[@class='myclass']
+body: //div[@id='myid']</code></pre>
+<p>Then, test you file. If you got the right content but you want to strip unnecessary parts, do :</p>
+<pre><code>strip: //div[@class='hidden']</code></pre>
+<p>You can look at other options for siteconfig files <a href="http://help.fivefilters.org/customer/portal/articles/223153-site-patterns">here</a>.</p>
                 </section>
 
             </div>

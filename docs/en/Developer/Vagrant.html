@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>wallabag - Help wallabag</title>
+        <title>wallabag - Vagrant</title>
 
         <link rel="stylesheet" href="http://doc.wallabag.org/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://doc.wallabag.org/css/font-awesome.min.css">
@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="http://doc.wallabag.org/">
                 wallabag
                 <small class="hidden-xs hidden-sm">
-                    Help wallabag
+                    Vagrant
                 </small>
             </a>
             <a href="http://doc.wallabag.org/en">EN</a> - <a href="http://doc.wallabag.org/fr">FR</a> - <a href="http://doc.wallabag.org/de">DE</a> - <a href="http://doc.wallabag.org/ru">RU</a>
@@ -44,7 +44,7 @@
                                                    Getting started
                                                 </a>
                                             </li>
-                                                                                    <li class="test active">
+                                                                                    <li class="test ">
                                                 <a href="http://doc.wallabag.org/en/Help_wallabag.html">
                                                    Help us
                                                 </a>
@@ -160,7 +160,7 @@
                                                    Docker
                                                 </a>
                                             </li>
-                                                                                    <li class="test ">
+                                                                                    <li class="test active">
                                                 <a href="http://doc.wallabag.org/en/Developer/Vagrant.html">
                                                    Vagrant
                                                 </a>
@@ -177,24 +177,25 @@
 
                 
                 <section class="col-lg-10">
-                    <h1>Help wallabag</h1>
-<h2>Report bugs</h2>
-<h3>Contact wallabag support</h3>
-<p>TODO</p>
-<h3>Create a new issue</h3>
-<p>TODO</p>
-<h2>Write and fix documentation</h2>
-<p>TODO</p>
-<h2>Fix bugs</h2>
-<p>TODO</p>
-<h2>Spread the word</h2>
-<p>It's not so complicated: just talk about wallabag! Use #wallabag hashtag on all your social networks: twitter, Facebook, Diaspora*, Google+, etc.</p>
-<p>Here are our accounts on social networks:</p>
+                    <h1>Vagrant</h1>
+<p>In order to allow you to easily set up the required configuration for wallabag, we offer you a Vagrantfile file to be used with <a href="http://www.vagrantup.com">Vagrant</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Vagrant_%28software%29">According to Wikipedia,</a></p>
+<pre><code>Vagrant is computer software for creating and configuring virtual development environments. It can be seen as a wrapper around virtualization software such as VirtualBox, KVM, VMware and around configuration management software such as Ansible, Chef, Salt or Puppet.</code></pre>
+<h2>Use Vagrant for wallabag</h2>
+<p>Here is the procedure to run wallabag inside a Vagrant container:</p>
+<pre><code>wget -O wallabag-dev.zip https://github.com/wallabag/wallabag/archive/dev.zip
+unzip wallabag-dev.zip
+cd wallabag-dev
+vagrant up</code></pre>
+<p>Now, go to <code>http://localhost:8003</code>, wallabag should be available there! (make sure you do not use the port 8003 of your machine for something else before)</p>
+<h2>What did the Vagrantfile install ?</h2>
+<p>The script install a LAMP server, i.e. :</p>
 <ul>
-<li><a href="https://framasphere.org/people/2335ff202f920132196e2a0000053625">Diaspora*</a></li>
-<li><a href="https:/twitter.com/wallabagapp">twitter</a></li>
-<li><a href="https://www.facebook.com/wallabag">Facebook</a></li>
-<li><a href="https://plus.google.com/+WallabagOrg/">Google+</a></li>
+<li>Ubuntu 14.04</li>
+<li>an Apache2 web server</li>
+<li>PHP5</li>
+<li>SQLite or MySQL or PostgreSQL for PHP</li>
+<li>XDebug for PHP</li>
 </ul>
                 </section>
 

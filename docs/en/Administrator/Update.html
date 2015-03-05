@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>wallabag - Help wallabag</title>
+        <title>wallabag - Update wallabag</title>
 
         <link rel="stylesheet" href="http://doc.wallabag.org/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://doc.wallabag.org/css/font-awesome.min.css">
@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="http://doc.wallabag.org/">
                 wallabag
                 <small class="hidden-xs hidden-sm">
-                    Help wallabag
+                    Update wallabag
                 </small>
             </a>
             <a href="http://doc.wallabag.org/en">EN</a> - <a href="http://doc.wallabag.org/fr">FR</a> - <a href="http://doc.wallabag.org/de">DE</a> - <a href="http://doc.wallabag.org/ru">RU</a>
@@ -44,7 +44,7 @@
                                                    Getting started
                                                 </a>
                                             </li>
-                                                                                    <li class="test active">
+                                                                                    <li class="test ">
                                                 <a href="http://doc.wallabag.org/en/Help_wallabag.html">
                                                    Help us
                                                 </a>
@@ -61,7 +61,7 @@
                                                    Download and installation
                                                 </a>
                                             </li>
-                                                                                    <li class="test ">
+                                                                                    <li class="test active">
                                                 <a href="http://doc.wallabag.org/en/Administrator/Update.html">
                                                    Update wallabag
                                                 </a>
@@ -177,25 +177,17 @@
 
                 
                 <section class="col-lg-10">
-                    <h1>Help wallabag</h1>
-<h2>Report bugs</h2>
-<h3>Contact wallabag support</h3>
-<p>TODO</p>
-<h3>Create a new issue</h3>
-<p>TODO</p>
-<h2>Write and fix documentation</h2>
-<p>TODO</p>
-<h2>Fix bugs</h2>
-<p>TODO</p>
-<h2>Spread the word</h2>
-<p>It's not so complicated: just talk about wallabag! Use #wallabag hashtag on all your social networks: twitter, Facebook, Diaspora*, Google+, etc.</p>
-<p>Here are our accounts on social networks:</p>
-<ul>
-<li><a href="https://framasphere.org/people/2335ff202f920132196e2a0000053625">Diaspora*</a></li>
-<li><a href="https:/twitter.com/wallabagapp">twitter</a></li>
-<li><a href="https://www.facebook.com/wallabag">Facebook</a></li>
-<li><a href="https://plus.google.com/+WallabagOrg/">Google+</a></li>
-</ul>
+                    <h1>Update wallabag</h1>
+<h2>Update an existing wallabag installation</h2>
+<p>In order to update your installation, download and unzip the archive into your installation folder. For example on Ubuntu/Debian:</p>
+<pre><code>wget http://wllbg.org/latest
+unzip latest
+rsync -ur wallabag-version-number/* /var/www/html/wallabag/</code></pre>
+<p>Delete the `install folder and clear the cache:</p>
+<pre><code>cd /var/www/html/wallabag/
+rm -r cache/* install/</code></pre>
+<p>Clearing the cache is also possible in the configuration page, clicking on the link `Delete Cache.</p>
+<p>Verify at the bottom of the configuration page that you're running the last version.</p>
                 </section>
 
             </div>
